@@ -14,65 +14,68 @@ class LoginPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Material(
-      child: Container(
+      color: AppColors.primary,
+      child: SizedBox(
         width: size.width,
         height: size.height,
-        color: AppColors.primary,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 400,
-              height: 400,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(image: AssetImage(AppImages.pmgLogo)),
-                  borderRadius: BorderRadius.circular(200)),
-            ),
-            const SizedBox(
-              width: 40,
-            ),
-            SizedBox(
-              height: 400,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Faça seu login',
-                    style:
-                    GoogleFonts.reemKufi(fontSize: 48, color: Colors.white),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: LoginTextFieldWidget(
-                      hint: 'Usuario',
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 400,
+                height: 400,
+                decoration: BoxDecoration(
+                    image: const DecorationImage(image: AssetImage(AppImages.pmgLogo)),
+                    borderRadius: BorderRadius.circular(200)),
+              ),
+              const SizedBox(
+                width: 40,
+              ),
+              SizedBox(
+                height: 400,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Faça seu login',
+                      style:
+                      GoogleFonts.reemKufi(fontSize: 48, color: Colors.white),
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: LoginTextFieldWidget(
-                      hint: 'Senha',
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Material(
-                      color: AppColors.white,
-                      child: InkWell(
-                        hoverColor: AppColors.hoverPrimary,
-                        onTap: (){},
-                        child: Container(
-                          width: 200,
-                          height: 60,
-                          child: Center(child: Text('Entrar', style: GoogleFonts.reemKufi(fontSize: 36, color: AppColors.primary),)),
-                        ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: LoginTextFieldWidget(
+                        hint: 'Usuario',
                       ),
                     ),
-                  )
-                ],
-              ),
-            )
-          ],
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: LoginTextFieldWidget(
+                        hint: 'Senha',
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Material(
+                        color: AppColors.white,
+                        child: InkWell(
+                          hoverColor: AppColors.hoverPrimary,
+                          onTap: (){},
+                          child: Container(
+                            width: 200,
+                            height: 60,
+                            child: Center(child: Text('Entrar', style: GoogleFonts.reemKufi(fontSize: 36, color: AppColors.primary),)),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

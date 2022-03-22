@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pmg_project/user/user_page.dart';
 
-import 'client/client_page.dart';
 import 'login/login_page.dart';
 
 class PmgAssurances extends StatelessWidget {
@@ -10,10 +10,10 @@ class PmgAssurances extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Pmg Seguros',
-        initialRoute: '/login_page',
+        initialRoute: '/user_page',
         routes: {
           '/login_page': (context) => const LoginPage(),
-          '/client_page' : (context) => const ClientPage()
+          '/user_page' : (context) => const UserPage()
         });
   }
 }
