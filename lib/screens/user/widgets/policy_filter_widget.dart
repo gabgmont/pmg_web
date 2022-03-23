@@ -43,29 +43,47 @@ class PolicyFilterWidget extends StatelessWidget {
                   children: [
                     FilterDropDownWidget(
                       label: 'Status',
-                      open: true,
                       itens: [
-                        FilterItemWidget(status: PolicyStatusModel.approved()),
-                        FilterItemWidget(status: PolicyStatusModel.pending()),
-                        FilterItemWidget(status: PolicyStatusModel.refused()),
-                        FilterItemWidget(status: PolicyStatusModel.canceled()),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.approved(),
+                          onTap: () {
+
+                          },
+                        ),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.pending(),
+                          onTap: () {},
+                        ),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.refused(),
+                          onTap: () {},
+                        ),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.canceled(),
+                          onTap: () {},
+                        ),
                       ],
                     ),
                     FilterDropDownWidget(
                       label: 'Seguradora',
-                      open: true,
                       itens: [
-                        FilterItemWidget(status: PolicyStatusModel.assureance('Porto Seguro')),
-                        FilterItemWidget(status: PolicyStatusModel.assureance('Pottencial')),
-                        FilterItemWidget(status: PolicyStatusModel.assureance('Tokio')),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.assureance('Porto Seguro'),
+                          onTap: () {},
+                        ),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.assureance('Pottencial'),
+                          onTap: () {},
+                        ),
+                        FilterItemWidget(
+                          status: PolicyStatusModel.assureance('Tokio'),
+                          onTap: () {},
+                        ),
                       ],
                     ),
                     const FilterDropDownWidget(
                       label: 'Data',
-                      open: true,
-                      itens: [
-                        DateFilterWidget()
-                      ],
+                      itens: [DateFilterWidget()],
                     ),
                   ],
                 ),

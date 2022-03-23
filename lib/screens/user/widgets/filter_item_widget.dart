@@ -4,22 +4,50 @@ import 'package:pmg_project/model/policy_status_model.dart';
 
 import '../../../utils/app_colors.dart';
 
-class FilterItemWidget extends StatelessWidget {
+class FilterItemWidget extends StatefulWidget {
   final PolicyStatusModel status;
-  const FilterItemWidget({Key? key,required this.status}) : super(key: key);
+  final VoidCallback onTap;
+
+  const FilterItemWidget({Key? key, required this.status, required this.onTap})
+      : super(key: key);
+
+  @override
+  State<FilterItemWidget> createState() => _FilterItemWidgetState();
+}
+
+class _FilterItemWidgetState extends State<FilterItemWidget> {
+  bool pressed = false;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30,
-      child: Row(
-        children: [
-          Icon(status.icon, color: status.color,),
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0),
-            child: Text(status.label, style: GoogleFonts.reemKufi(color: AppColors.primary),),
-          )
-        ],
+    return Material(
+      color: pressed ? AppColors.hoverPrimary : Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            pressed = !pressed;
+            widget.onTap();
+          });
+        },
+        hoverColor: AppColors.hoverPrimary,
+        child: SizedBox(
+          height: 30,
+          child: Row(
+            children: [
+              Icon(
+                widget.status.icon,
+                color: widget.status.color,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 4.0),
+                child: Text(
+                  widget.status.label,
+                  style: GoogleFonts.reemKufi(color: AppColors.primary),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

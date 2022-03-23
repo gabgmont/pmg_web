@@ -4,42 +4,60 @@ import 'package:pmg_project/utils/app_colors.dart';
 
 const _dropDownWidth = 190.0;
 
-class FilterDropDownWidget extends StatelessWidget {
+class FilterDropDownWidget extends StatefulWidget {
   final String label;
-  final bool open;
   final List<Widget> itens;
 
-  const FilterDropDownWidget(
-      {Key? key, required this.label, required this.itens, this.open = false})
-      : super(key: key);
+  const FilterDropDownWidget({
+    Key? key,
+    required this.label,
+    required this.itens,
+  }) : super(key: key);
+
+  @override
+  State<FilterDropDownWidget> createState() => _FilterDropDownWidgetState();
+}
+
+class _FilterDropDownWidgetState extends State<FilterDropDownWidget> {
+  bool open = false;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 30,
-          width: _dropDownWidth,
-          child: Row(
-            children: [
-              const Icon(
-                Icons.keyboard_arrow_down_outlined,
-                size: 32,
-                color: AppColors.primary,
-              ),
-              Text(
-                label,
-                style: GoogleFonts.reemKufi(
-                    fontSize: 18, color: AppColors.primary),
-              ),
-            ],
+        InkWell(
+          hoverColor: AppColors.hoverPrimary,
+          onTap: (){
+            setState(() {
+              open = !open;
+            });
+          },
+          child: SizedBox(
+            height: 30,
+            width: _dropDownWidth,
+            child: Row(
+              children: [
+                Icon(
+                  open
+                      ? Icons.keyboard_arrow_up_outlined
+                      : Icons.keyboard_arrow_down_outlined,
+                  size: 32,
+                  color: AppColors.primary,
+                ),
+                Text(
+                  widget.label,
+                  style: GoogleFonts.reemKufi(
+                      fontSize: 18, color: AppColors.primary),
+                ),
+              ],
+            ),
           ),
         ),
         SizedBox(
           width: _dropDownWidth,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: open ? itens : [],
+            children: open ? widget.itens : [],
           ),
         ),
         Container(
