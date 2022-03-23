@@ -7,12 +7,16 @@ import 'search_bar_widget.dart';
 
 class PolicyListWidget extends StatelessWidget {
   final List<PolicyItemWidget> policies;
-  const PolicyListWidget({Key? key,required this.policies}) : super(key: key);
+  final TextEditingController searchController;
+  final Function(String filter) onChange;
+
+  const PolicyListWidget(
+      {Key? key, required this.policies, required this.searchController,required this.onChange})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final searchController = TextEditingController();
 
     return SizedBox(
       height: size.height - 60,
@@ -32,14 +36,15 @@ class PolicyListWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: SearchBarWidget(
-              hint: 'Nome, Número',
+              onChange: onChange,
+              hint: 'Número, Nome, Asseguradora, Status',
               textController: searchController,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
             child: SizedBox(
-              height: size.height- 153,
+              height: size.height - 153,
               child: ListView.builder(
                 primary: false,
                 controller: ScrollController(),

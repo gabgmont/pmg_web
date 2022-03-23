@@ -9,9 +9,10 @@ const defaultHint = 'Pesquisar';
 class SearchBarWidget extends StatelessWidget {
   final String hint;
   final TextEditingController textController;
+  final Function(String filter) onChange;
 
   const SearchBarWidget(
-      {Key? key, this.hint = defaultHint, required this.textController})
+      {Key? key, this.hint = defaultHint, required this.textController,required this.onChange})
       : super(key: key);
 
   @override
@@ -39,6 +40,7 @@ class SearchBarWidget extends StatelessWidget {
             ),
             Expanded(
               child: TextFormField(
+                onChanged: onChange,
                 controller: textController,
                 scrollPadding: EdgeInsets.zero,
                 cursorColor: AppColors.primary,
