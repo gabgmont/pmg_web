@@ -18,8 +18,39 @@ class FilterDropDownWidget extends StatefulWidget {
   State<FilterDropDownWidget> createState() => _FilterDropDownWidgetState();
 }
 
-class _FilterDropDownWidgetState extends State<FilterDropDownWidget> {
+class _FilterDropDownWidgetState extends State<FilterDropDownWidget>
+    with SingleTickerProviderStateMixin {
   bool open = false;
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 150),
+    );
+    super.initState();
+  }
+
+  void _runExpandCheck() {
+    if (open) {
+      _controller.forward();
+    } else {
+      _controller.reverse();
+    }
+  }
+
+  @override
+  void didUpdateWidget(FilterDropDownWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _runExpandCheck();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +58,10 @@ class _FilterDropDownWidgetState extends State<FilterDropDownWidget> {
       children: [
         InkWell(
           hoverColor: AppColors.hoverPrimary,
-          onTap: (){
+          onTap: () {
             setState(() {
               open = !open;
+              _runExpandCheck();
             });
           },
           child: SizedBox(
@@ -37,27 +69,32 @@ class _FilterDropDownWidgetState extends State<FilterDropDownWidget> {
             width: _dropDownWidth,
             child: Row(
               children: [
-                Icon(
-                  open
-                      ? Icons.keyboard_arrow_up_outlined
-                      : Icons.keyboard_arrow_down_outlined,
-                  size: 32,
+                AnimatedIcon(
+                  icon: AnimatedIcons.menu_arrow,
+                  progress: _controller,
+                  size: 24,
                   color: AppColors.primary,
                 ),
-                Text(
-                  widget.label,
-                  style: GoogleFonts.reemKufi(
-                      fontSize: 18, color: AppColors.primary),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Text(
+                    widget.label,
+                    style: GoogleFonts.reemKufi(
+                        fontSize: 18, color: AppColors.primary),
+                  ),
                 ),
               ],
             ),
           ),
         ),
-        SizedBox(
-          width: _dropDownWidth,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: open ? widget.itens : [],
+        SizeTransition(
+          sizeFactor: _controller,
+          child: SizedBox(
+            width: _dropDownWidth,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: widget.itens,
+            ),
           ),
         ),
         Container(

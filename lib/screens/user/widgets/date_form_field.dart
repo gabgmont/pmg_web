@@ -20,41 +20,44 @@ class DateFormField extends StatelessWidget {
     if(controller.text.isEmpty){
       controller.text = date;
     }
-    return SizedBox(
-      height: 20,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: GoogleFonts.reemKufi(fontSize: 18, color: AppColors.primary),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: SizedBox(
-              width: 90,
-              child: TextFormField(
-                controller: controller,
-                cursorColor: AppColors.primary,
-                maxLength: 10,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.reemKufi(
-                  color: AppColors.primary,
-                ),
-                decoration: const InputDecoration(
-                  counterText: '',
-                  isDense: true,
-                  enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1, color: AppColors.primary)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(width: 2, color: AppColors.primary),
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: SizedBox(
+        height: 20,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: GoogleFonts.reemKufi(fontSize: 18, color: AppColors.primary),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SizedBox(
+                width: 90,
+                child: TextFormField(
+                  controller: controller,
+                  cursorColor: AppColors.primary,
+                  maxLength: 10,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.reemKufi(
+                    color: AppColors.primary,
+                  ),
+                  decoration: const InputDecoration(
+                    counterText: '',
+                    isDense: true,
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(width: 2, color: AppColors.primary),
+                    ),
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

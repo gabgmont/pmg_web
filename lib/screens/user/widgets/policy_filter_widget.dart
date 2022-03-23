@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pmg_project/model/policy_status_model.dart';
 import 'package:pmg_project/utils/app_colors.dart';
 
-import 'date_filter_widget.dart';
+import 'date_form_field.dart';
 import 'filter_drop_down_widget.dart';
 import 'filter_item_widget.dart';
 
@@ -13,6 +13,9 @@ class PolicyFilterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final startDateController = TextEditingController();
+    final endDateController = TextEditingController();
+
     return SizedBox(
       height: size.height - 60,
       width: 200,
@@ -46,9 +49,7 @@ class PolicyFilterWidget extends StatelessWidget {
                       itens: [
                         FilterItemWidget(
                           status: PolicyStatusModel.approved(),
-                          onTap: () {
-
-                          },
+                          onTap: () {},
                         ),
                         FilterItemWidget(
                           status: PolicyStatusModel.pending(),
@@ -81,9 +82,20 @@ class PolicyFilterWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const FilterDropDownWidget(
+                    FilterDropDownWidget(
                       label: 'Data',
-                      itens: [DateFilterWidget()],
+                      itens: [
+                        DateFormField(
+                          label: 'De',
+                          date: '10/12/2022',
+                          controller: startDateController,
+                        ),
+                        DateFormField(
+                          label: 'Até',
+                          date: '10/12/2022',
+                          controller: endDateController,
+                        ),
+                      ],
                     ),
                   ],
                 ),
