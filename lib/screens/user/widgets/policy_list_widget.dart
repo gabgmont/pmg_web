@@ -25,7 +25,7 @@ class PolicyListWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4.0),
             child: Text(
-              "Suas Apólices",
+              'Suas Apólices',
               style:
                   GoogleFonts.reemKufi(color: AppColors.primary, fontSize: 28),
             ),

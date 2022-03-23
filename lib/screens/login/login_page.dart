@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
                         child: InkWell(
                           hoverColor: AppColors.hoverPrimary,
                           onTap: (){},
-                          child: Container(
+                          child: SizedBox(
                             width: 200,
                             height: 60,
                             child: Center(child: Text('Entrar', style: GoogleFonts.reemKufi(fontSize: 36, color: AppColors.primary),)),

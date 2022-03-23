@@ -32,7 +32,7 @@ class SearchBarWidget extends StatelessWidget {
         padding: const EdgeInsets.all(4.0),
         child: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.search_outlined,
               color: AppColors.primary,
               size: 26,

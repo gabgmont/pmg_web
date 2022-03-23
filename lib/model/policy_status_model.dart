@@ -5,25 +5,30 @@ import '../utils/app_colors.dart';
 class PolicyStatusModel{
   final IconData icon;
   final Color color;
-  final String status;
+  final String label;
 
   PolicyStatusModel.approved() :
       icon = Icons.check_circle,
       color = AppColors.approved,
-      status = 'Aprovado';
+      label = 'Aprovado';
 
   PolicyStatusModel.refused() :
         icon = Icons.cancel,
         color = AppColors.refused,
-        status = 'Recusado';
+        label = 'Recusado';
 
   PolicyStatusModel.pending() :
         icon = Icons.pending,
         color = AppColors.pending,
-        status = 'Em análise';
+        label = 'Em análise';
 
   PolicyStatusModel.canceled() :
         icon = Icons.block,
         color = AppColors.canceled,
-        status = 'Cancelado';
+        label = 'Cancelado';
+
+  PolicyStatusModel.assureance(String name) :
+        icon = Icons.account_balance_outlined,
+        color = AppColors.primary,
+        label = name;
 }

@@ -48,7 +48,7 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
             ),
-            IconButton(padding: EdgeInsets.zero,onPressed: (){}, icon: Icon(Icons.logout, size: 40, color: AppColors.white,))
+            IconButton(padding: EdgeInsets.zero,onPressed: (){}, icon: const Icon(Icons.logout, size: 40, color: AppColors.white,))
           ],
         ),
       ),

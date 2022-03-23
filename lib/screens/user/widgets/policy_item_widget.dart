@@ -92,7 +92,7 @@ class PolicyItemWidget extends StatelessWidget {
                           children: [
                             Text(policyModel.date, style: policyItemStyle,),
                             Text(
-                              status.status,
+                              status.label,
                               style: GoogleFonts.reemKufi(color: status.color),
                               textAlign: TextAlign.end,
                             ),

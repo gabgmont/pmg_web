@@ -20,9 +20,9 @@ class UserPage extends StatelessWidget {
         width: size.width,
         child: Column(
           children: [
-            HeaderWidget(),
+            const HeaderWidget(),
             Row(
-              children: [
+              children: const [
                 PolicyFilterWidget(),
                 PolicyListWidget()
               ],
