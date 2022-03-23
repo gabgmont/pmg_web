@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pmg_project/user/user_page.dart';
 
-import 'login/login_page.dart';
+import 'screens/login/login_page.dart';
+import 'screens/user/user_page.dart';
 
 class PmgAssurances extends StatelessWidget {
   const PmgAssurances({Key? key}) : super(key: key);

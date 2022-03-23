@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pmg_project/Utils/app_colors.dart';
-import 'package:pmg_project/Utils/app_images.dart';
 
+import '../../utils/app_colors.dart';
+import '../../utils/app_images.dart';
 import 'widgets/login_text_field_widget.dart';
 
 class LoginPage extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Utils/app_colors.dart';
-import '../../Utils/app_images.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/app_images.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key}) : super(key: key);

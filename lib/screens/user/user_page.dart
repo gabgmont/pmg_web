@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pmg_project/Utils/app_colors.dart';
-import 'package:pmg_project/user/widgets/user_page_header_widget.dart';
 
+
+import '../../utils/app_colors.dart';
 import 'widgets/policy_filter_widget.dart';
 import 'widgets/policy_list_widget.dart';
+import 'widgets/user_page_header_widget.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
 
     return Material(
       color: AppColors.lightGray,
