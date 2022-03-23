@@ -5,6 +5,7 @@ import 'package:pmg_project/model/policy_status_model.dart';
 import '../../../model/policy_item_model.dart';
 import '../../../utils/app_colors.dart';
 
+const _policyItemHeight = 130.0;
 
 class PolicyItemWidget extends StatelessWidget {
   final PolicyStatusModel status;
@@ -21,7 +22,7 @@ class PolicyItemWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 100,
+          height: _policyItemHeight,
           decoration: BoxDecoration(
             color: AppColors.primary,
             borderRadius: BorderRadius.circular(17),
@@ -38,7 +39,7 @@ class PolicyItemWidget extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                height: 100,
+                height: _policyItemHeight,
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(17),
@@ -46,15 +47,15 @@ class PolicyItemWidget extends StatelessWidget {
                 child: Row(
                   children: [
                     SizedBox(
-                      width: 100,
+                      width: _policyItemHeight,
                       child: Icon(
                         status.icon,
-                        size: 65,
+                        size: 80,
                         color: status.color,
                       ),
                     ),
                     Container(
-                      height: 80,
+                      height: _policyItemHeight - 20,
                       width: 1,
                       color: AppColors.lightGray,
                     ),
@@ -109,7 +110,7 @@ class PolicyItemWidget extends StatelessWidget {
               child: Icon(
                 Icons.more_horiz,
                 color: AppColors.white,
-                size: 48,
+                size: 60,
               ),
             )
           ],

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pmg_project/model/policy_item_model.dart';
-import 'package:pmg_project/model/policy_status_model.dart';
 
 import '../../../utils/app_colors.dart';
 import 'policy_item_widget.dart';
 import 'search_bar_widget.dart';
 
 class PolicyListWidget extends StatelessWidget {
-  const PolicyListWidget({Key? key}) : super(key: key);
+  final List<PolicyItemWidget> policies;
+  const PolicyListWidget({Key? key,required this.policies}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,18 +45,10 @@ class PolicyListWidget extends StatelessWidget {
                 controller: ScrollController(),
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
-                itemCount: 10,
+                itemCount: policies.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(top: 8.0),
-                  child: PolicyItemWidget(
-                    status: PolicyStatusModel.approved(),
-                    policyModel: PolicyItemModel(
-                      'N°9999',
-                      'Fulano de tal',
-                      'Porto Seguro',
-                      '10/10/10'
-                    ),
-                  ),
+                  child: policies[index],
                 ),
               ),
             ),
