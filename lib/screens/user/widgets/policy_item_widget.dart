@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pmg_project/model/policy_status_model.dart';
@@ -32,7 +31,7 @@ class _PolicyItemWidgetState extends State<PolicyItemWidget>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 150),
     );
     super.initState();
   }
@@ -254,7 +253,7 @@ class _PolicyItemWidgetState extends State<PolicyItemWidget>
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
+                          children: const [
                             DetailsItem(
                               label: 'LMG',
                               value: '26.000,00',

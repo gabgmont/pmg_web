@@ -27,7 +27,7 @@ class _FilterDropDownWidgetState extends State<FilterDropDownWidget>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 150),
     );
     super.initState();
   }

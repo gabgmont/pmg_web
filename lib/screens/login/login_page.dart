@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
 
     return Material(
       color: AppColors.primary,
-      child: Container(
+      child: SizedBox(
         width: size.width,
         height: size.height,
         child: Center(
