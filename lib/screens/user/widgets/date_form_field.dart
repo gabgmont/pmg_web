@@ -35,11 +35,11 @@ class DateFormField extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: SizedBox(
-                width: 90,
+                width: 100,
                 child: TextFormField(
                   controller: controller,
                   cursorColor: AppColors.primary,
-                  maxLength: 10,
+                  maxLength: 8,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.reemKufi(
                     color: AppColors.primary,

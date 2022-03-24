@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pmg_project/model/policy_status_model.dart';
+import 'package:pmg_project/screens/user/controller/search_controller.dart';
 import 'package:pmg_project/utils/app_colors.dart';
 
 import 'date_form_field.dart';
 import 'filter_drop_down_widget.dart';
 import 'filter_item_widget.dart';
 
-class PolicyFilterWidget extends StatelessWidget {
-  const PolicyFilterWidget({Key? key}) : super(key: key);
+class PolicyFilterWidget extends StatefulWidget {
+  final SearchController searchController;
+  final VoidCallback onTap;
 
+  const PolicyFilterWidget({Key? key, required this.searchController,required this.onTap})
+      : super(key: key);
+
+  @override
+  State<PolicyFilterWidget> createState() => _PolicyFilterWidgetState();
+}
+
+class _PolicyFilterWidgetState extends State<PolicyFilterWidget> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -49,19 +59,39 @@ class PolicyFilterWidget extends StatelessWidget {
                       itens: [
                         FilterItemWidget(
                           status: PolicyStatusModel.approved(),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateStatusFilter(label);
+                            });
+                          },
                         ),
                         FilterItemWidget(
                           status: PolicyStatusModel.pending(),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateStatusFilter(label);
+                            });
+                          },
                         ),
                         FilterItemWidget(
                           status: PolicyStatusModel.refused(),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateStatusFilter(label);
+                            });
+                          },
                         ),
                         FilterItemWidget(
                           status: PolicyStatusModel.canceled(),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateStatusFilter(label);
+                            });
+                          },
                         ),
                       ],
                     ),
@@ -70,15 +100,30 @@ class PolicyFilterWidget extends StatelessWidget {
                       itens: [
                         FilterItemWidget(
                           status: PolicyStatusModel.assureance('Porto Seguro'),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateAssuranceFilter(label);
+                            });
+                          },
                         ),
                         FilterItemWidget(
                           status: PolicyStatusModel.assureance('Pottencial'),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateAssuranceFilter(label);
+                            });
+                          },
                         ),
                         FilterItemWidget(
                           status: PolicyStatusModel.assureance('Tokio'),
-                          onTap: () {},
+                          onTap: (label) {
+                            setState(() {
+                              widget.onTap();
+                              widget.searchController.updateAssuranceFilter(label);
+                            });
+                          },
                         ),
                       ],
                     ),

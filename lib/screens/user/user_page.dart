@@ -36,16 +36,19 @@ class _UserPageState extends State<UserPage> {
       ),
       PolicyItemWidget(
         status: PolicyStatusModel.refused(),
-        policyModel: PolicyItemModel(
-            'N°9997', 'Cleber de tal', 'Tokio', '10/10/21'),
+        policyModel:
+            PolicyItemModel('N°9997', 'Cleber de tal', 'Tokio', '10/10/21'),
       ),
       PolicyItemWidget(
         status: PolicyStatusModel.canceled(),
-        policyModel: PolicyItemModel(
-            'N°9996', 'Joao de tal', 'Pottencial', '10/10/21'),
+        policyModel:
+            PolicyItemModel('N°9996', 'Joao de tal', 'Pottencial', '10/10/21'),
       )
     ];
-    searchController.init(policies);
+
+    if(!searchController.initialized){
+      searchController.init(policies);
+    }
 
     return Material(
       color: AppColors.lightGray,
@@ -57,13 +60,19 @@ class _UserPageState extends State<UserPage> {
             const HeaderWidget(),
             Row(
               children: [
-                const PolicyFilterWidget(),
+                PolicyFilterWidget(
+                  searchController: searchController,
+                  onTap: (){
+                    setState(() {});
+                  },
+                ),
                 PolicyListWidget(
-                  onChange: (_){
+                  onChange: (_) {
                     setState(() {});
                   },
                   searchController: searchTextController,
-                  policies: searchController.executeFilter(searchTextController.text),
+                  policies:
+                      searchController.executeFilter(searchTextController.text),
                 )
               ],
             )

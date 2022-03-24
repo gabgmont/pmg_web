@@ -6,7 +6,7 @@ import '../../../utils/app_colors.dart';
 
 class FilterItemWidget extends StatefulWidget {
   final PolicyStatusModel status;
-  final VoidCallback onTap;
+  final Function(String label) onTap;
 
   const FilterItemWidget({Key? key, required this.status, required this.onTap})
       : super(key: key);
@@ -26,7 +26,7 @@ class _FilterItemWidgetState extends State<FilterItemWidget> {
         onTap: () {
           setState(() {
             pressed = !pressed;
-            widget.onTap();
+            widget.onTap(widget.status.label);
           });
         },
         hoverColor: AppColors.hoverPrimary,
