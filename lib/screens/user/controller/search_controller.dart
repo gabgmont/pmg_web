@@ -50,7 +50,7 @@ class SearchController {
     } else {
       auxPolicies = assurancePolicies;
     }
-
+    if(auxPolicies.isEmpty) auxPolicies = policies;
     if (filter.isEmpty) return auxPolicies;
 
     return auxPolicies

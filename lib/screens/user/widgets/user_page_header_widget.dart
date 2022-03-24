@@ -9,9 +9,7 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
 
     return Container(
       height: 60,
@@ -26,10 +24,10 @@ class HeaderWidget extends StatelessWidget {
               height: 50,
               decoration: BoxDecoration(
                   color: AppColors.white,
-                  borderRadius: BorderRadius.circular(500)
-              ),
+                  borderRadius: BorderRadius.circular(500)),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 child: Row(
                   children: [
                     Container(
@@ -37,18 +35,31 @@ class HeaderWidget extends StatelessWidget {
                       width: 40,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(500),
-                          image: const DecorationImage(image: AssetImage(AppImages.pmgLogo))
-                      ),
+                          image: const DecorationImage(
+                              image: AssetImage(AppImages.pmgLogo))),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
-                      child: Text("Pmg Seguros", style: GoogleFonts.reemKufi(fontSize: 18, color: AppColors.primary,)),
+                      child: Text("Pmg Seguros",
+                          style: GoogleFonts.reemKufi(
+                            fontSize: 18,
+                            color: AppColors.primary,
+                          )),
                     )
                   ],
                 ),
               ),
             ),
-            IconButton(padding: EdgeInsets.zero,onPressed: (){}, icon: const Icon(Icons.logout, size: 40, color: AppColors.white,))
+            IconButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login_page');
+                },
+                icon: const Icon(
+                  Icons.logout,
+                  size: 40,
+                  color: AppColors.white,
+                ))
           ],
         ),
       ),
