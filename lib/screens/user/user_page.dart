@@ -28,25 +28,29 @@ class _UserPageState extends State<UserPage> {
         status: PolicyStatusModel.approved(),
         policyModel: PolicyItemModel(
             'N°9999', 'Cleber de tal', 'Porto Seguro', '10/10/22'),
+
       ),
       PolicyItemWidget(
         status: PolicyStatusModel.pending(),
         policyModel: PolicyItemModel(
             'N°9998', 'Jose de tal', 'Porto Seguro', '10/10/22'),
+
       ),
       PolicyItemWidget(
         status: PolicyStatusModel.refused(),
         policyModel:
             PolicyItemModel('N°9997', 'Cleber de tal', 'Tokio', '10/10/21'),
+
       ),
       PolicyItemWidget(
         status: PolicyStatusModel.canceled(),
         policyModel:
             PolicyItemModel('N°9996', 'Joao de tal', 'Pottencial', '10/10/21'),
+
       )
     ];
 
-    if(!searchController.initialized){
+    if (!searchController.initialized) {
       searchController.init(policies);
     }
 
@@ -62,7 +66,7 @@ class _UserPageState extends State<UserPage> {
               children: [
                 PolicyFilterWidget(
                   searchController: searchController,
-                  onTap: (){
+                  onTap: () {
                     setState(() {});
                   },
                 ),
